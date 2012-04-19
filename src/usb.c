@@ -111,6 +111,7 @@ int owon_usb_read(struct usb_dev_handle *dev_handle, char **buffer) {
 
 void owon_usb_close(struct usb_dev_handle *dev_handle) {
     usb_release_interface(dev_handle, OWON_USB_INTERFACE);
+    usb_reset(dev_handle);
     usb_close(dev_handle);
 }
 
