@@ -1,6 +1,22 @@
+# Note: For Mac OS-X (Lion), you'll need libusb-legacy from macports.
+# 		Get it with the following:
+#
+# 			sudo port install libusb-legacy
+#
+
+# Determine operating system environment
+UNAME = $(shell uname)
+
 CC = gcc
+
+ifeq "$(UNAME)" "Darwin"
 CFLAGS = -Wall -g# -O2
 LDFLAGS = -L.
+else
+CFLAGS = -I/opt/local/include/libusb-legacy -Wall -g# -O2
+LDFLAGS = -L/opt/local/lib/libusb-legacy
+endif
+
 BINARIES = owondump owonparse
 AR = ar
 ARFLAGS = rcs
@@ -8,7 +24,7 @@ ARFLAGS = rcs
 all: $(BINARIES)
 
 owondump: owondump.o usb.o
-	$(CC) $(CFLAGS) -o owondump owondump.o usb.o -lusb
+	$(CC) $(CFLAGS) $(LDFLAGS) -o owondump owondump.o usb.o -lusb-legacy
 
 owonparse: owonparse.o parse.o
 	$(CC) $(CFLAGS) -o owonparse owonparse.o parse.o
