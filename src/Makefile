@@ -10,11 +10,11 @@ UNAME = $(shell uname)
 CC = gcc
 
 ifeq "$(UNAME)" "Darwin"
-CFLAGS = -Wall -g# -O2
-LDFLAGS = -L.
-else
 CFLAGS = -I/opt/local/include/libusb-legacy -Wall -g# -O2
 LDFLAGS = -L/opt/local/lib/libusb-legacy
+else
+CFLAGS = -Wall -g# -O2
+LDFLAGS = -L.
 endif
 
 BINARIES = owondump owonparse
