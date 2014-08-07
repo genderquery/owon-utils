@@ -1,6 +1,6 @@
 /*
  * owon-utils - a set of programs to use with OWON Oscilloscopes
- * Copyright (c) 2012  Levi Larsen <levi.larsen@gmail.com>
+ * Copyright (c) 2012  Lana Larsen <lana@stoatly.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
